@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
+    @note = Note.new
     @notes = Note.all
   end
 
@@ -30,6 +31,7 @@ class NotesController < ApplicationController
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
         format.json { render action: 'show', status: :created, location: @note }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @note.errors, status: :unprocessable_entity }
