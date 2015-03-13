@@ -1,5 +1,5 @@
 (function() {
-  var note = $("<%= j render 'note' %>");
+  var note = $("<%= '<p>'@note.content'</p' %>");
   note.hide().appendTo($('div.new-notes')).fadeIn();
 })();
 
